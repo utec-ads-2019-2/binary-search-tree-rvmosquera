@@ -18,7 +18,7 @@ void Tester::testBSFTree(Mocker mocker, vector<T> elements) {
         ASSERT(test->find(elements[j]), "There is a problem with the insert or find");
     }
 
-    sortAndPrune(elements);
+    //sortAndPrune(elements);
 
     ASSERT(elements.size() == test->size(), "There is a problem with the insert or size");
 
@@ -28,7 +28,10 @@ void Tester::testBSFTree(Mocker mocker, vector<T> elements) {
         T temp = elements.at(index);
         elements.erase(elements.begin() + index);
         test->remove(temp);
-        ASSERT(!test->find(temp), "There is a problem with the remove or find");
+
+        int duplicates = count(elements.begin(), elements.end(), temp);
+        ASSERT(test->find(temp) == (duplicates > 0), "There is a problem with the remove or find");
+
     }
 
     ASSERT(elements.size() == test->size(), "There is a problem with the remove or size");
