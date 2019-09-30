@@ -41,6 +41,7 @@ private:
     }
 
     bool remove(T &data, Node<T> *&current) {
+        // El código es medio repetido con find y el insert, podría reducirse un poco 
         if ( !current )
             return false;
         else if (data < current->data)

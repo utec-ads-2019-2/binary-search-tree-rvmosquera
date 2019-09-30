@@ -18,6 +18,7 @@ void Tester::testBSFTree(Mocker mocker, vector<T> elements) {
         ASSERT(test->find(elements[j]), "There is a problem with the insert or find");
     }
 
+    // Por qué comentaste esto?
     //sortAndPrune(elements);
 
     ASSERT(elements.size() == test->size(), "There is a problem with the insert or size");
@@ -51,6 +52,6 @@ void Tester::testBSFTree(Mocker mocker, vector<T> elements) {
 template <typename T>
 void Tester::sortAndPrune(vector<T>& array) {
     sort(array.begin(), array.end());
-    auto last = unique(array.begin(), array.end());
-    array.erase(last, array.end()); 
+    //auto last = unique(array.begin(), array.end());
+    //array.erase(last, array.end()); 
 }
